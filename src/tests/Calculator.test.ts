@@ -5,9 +5,11 @@ describe("Calculator", () => {
   it("should add two numbers", () => {
     // Arrange
     const calculator = new Calculator();
+    const a = 1;
+    const b = 2;
 
     // Act
-    const result = calculator.add(1, 2);
+    const result = calculator.add(a, b);
 
     // Assert
     expect(result).toBe(3);
@@ -16,9 +18,11 @@ describe("Calculator", () => {
   it("should subtract two numbers", () => {
     // Arrange
     const calculator = new Calculator();
+    const a = 1;
+    const b = 2;
 
     // Act
-    const result = calculator.subtract(1, 2);
+    const result = calculator.subtract(a, b);
 
     // Assert
     expect(result).toBe(-1);
@@ -27,31 +31,37 @@ describe("Calculator", () => {
   it("should multiply two numbers", () => {
     // Arrange
     const calculator = new Calculator();
+    const a = 2;
+    const b = 3;
 
     // Act
-    const result = calculator.multiply(1, 2);
+    const result = calculator.multiply(a, b);
 
     // Assert
-    expect(result).toBe(2);
+    expect(result).toBe(6);
   });
 
   it("should divide two numbers", () => {
     // Arrange
     const calculator = new Calculator();
+    const a = 7;
+    const b = 2;
 
     // Act
-    const result = calculator.divide(1, 2);
+    const result = calculator.divide(a, b);
 
     // Assert
-    expect(result).toBe(0.5);
+    expect(result).toBe(3.5);
   });
 
   it("should pow two numbers", () => {
     // Arrange
     const calculator = new Calculator();
+    const a = 2;
+    const b = 2;
 
     // Act
-    const result = calculator.pow(2, 2);
+    const result = calculator.pow(a, b);
 
     // Assert
     expect(result).toBe(4);
