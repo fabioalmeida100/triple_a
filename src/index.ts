@@ -8,31 +8,40 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+function callOperation(operation: string, numberA: number, numberB: number) {
+  switch (operation) {
+    case 'add':
+      console.log(`Resultado: ${calculator.add(numberA, numberB)}`);
+      break;
+    case 'subtract':
+      console.log(`Resultado: ${calculator.subtract(numberA, numberB)}`);
+      break;
+    case 'multiply':
+      console.log(`Resultado: ${calculator.multiply(numberA, numberB)}`);
+      break;
+    case 'divide':
+      try {
+        console.log(`Resultado: ${calculator.divide(numberA, numberB)}`);
+      } catch (e: any) {
+        console.log(e.message);
+      }
+      break;
+    case 'pow':
+      console.log(`Resultado: ${calculator.pow(numberA, numberB)}`);
+      break;
+    case 'sqrt':
+      console.log(`Resultado: ${calculator.sqrt(numberA)}`);
+      break;
+  }
+}
+
 function askForNumbers(operation: string) {
   rl.question('Digite o primeiro número: ', (num1) => {
     rl.question('Digite o segundo número: ', (num2) => {
-      const a = parseFloat(num1);
-      const b = parseFloat(num2);
+      const numberA = parseFloat(num1);
+      const numberB = parseFloat(num2);
 
-      switch (operation) {
-        case 'add':
-          console.log(`Resultado: ${calculator.add(a, b)}`);
-          break;
-        case 'subtract':
-          console.log(`Resultado: ${calculator.subtract(a, b)}`);
-          break;
-        case 'multiply':
-          console.log(`Resultado: ${calculator.multiply(a, b)}`);
-          break;
-        case 'divide':
-          try {
-            console.log(`Resultado: ${calculator.divide(a, b)}`);
-          } catch (e: any) {
-            console.log(e.message);
-          }
-          break;
-      }
-
+      callOperation(operation, numberA, numberB);
       showMenu();
     });
   });
@@ -44,7 +53,8 @@ function showMenu() {
   console.log('2. Subtrair');
   console.log('3. Multiplicar');
   console.log('4. Dividir');
-  console.log('5. Sair');
+  console.log('5. Potência');
+  console.log('6. Sair');
 
   rl.question('Opção: ', (answer) => {
     switch (answer) {
@@ -61,6 +71,9 @@ function showMenu() {
         askForNumbers('divide');
         break;
       case '5':
+        askForNumbers('pow');
+        break;
+      case '6':
         rl.close();
         break;
       default:
